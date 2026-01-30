@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+    <style>
+        body{
+            text-align: center;
+            padding: 30px;
+        }
+    </style>
+</head>
+<body>
+    <h2>DOM Manipaluiation Demo</h2>
+    <p id="box">wel come to java script</p>
+    <script>
+        //find the element 
+        let introElement = document.getElementById("box");
+
+        //text change
+        introElement.innerText = "Hello student";
+
+        // changte the color inbackground 
+        document.body.style.backgroundColor = "green"
+
+        let newpara = document.createElement("p");
+        newpara.innerText = "I was create javascrit";
+        document.body.appendChild(newpara);
+
+
+        let newpara = document.createElement("p");
+        newpara2.innerText = "I was create javascrit2";
+        document.body.appendChild(newpara2);
+    </script>
+</body>
+</html>

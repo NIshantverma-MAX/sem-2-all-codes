@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    /* *{
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+   header{
+          display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        
+        
+        background-color: rgba(63, 88, 112, 0.823);
+
+     
+        height: 100px;
+
+
+   }
+
+   main{
+    background-color: rgb(55, 75, 77);
+
+    height: calc(100vh - 100px);
+   }
+
+    input{
+    height: 40px;
+    width: 100px;
+    
+    background-color: transparent;
+    
+   
+ 
+    border-style: solid;
+    border-color: rgba(97, 125, 151, 0);
+    
+   }
+   
+   button{
+    height: 40px;
+    width: 80px;
+
+    background-color: rgb(255, 255, 255);
+
+ 
+   }
+   
+.weather-container{
+    display: flex;
+    gap: 1rem;
+} */
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0px;
+}
+
+header {
+  height: 100px;
+  background-color: slategray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+main {
+  height: calc(100vh - 100px);
+  background-color: darkslategray;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  
+}
+
+.weather-container{
+    display: flex;
+    gap: 1rem;
+}
+
+.input-container {
+  display: flex;
+  gap: 1rem;
+}
+input{
+    background-color: transparent;
+    
+}
+    
+
+
+
+  </style>
+  <body>
+    <header>
+  <div class="input-container">
+    <input type="text" id="srchinput" placeholder="Enter Location" />
+    <button id="searchbtn">Search</button>
+  </div>
+</header>
+
+<main>
+  <div class="weather-container">
+    <div class="temperature" id="temp">12.5 C</div>
+    <div class="location-date">
+      <div class="location" id="loc">Delhi</div>
+      <span class="time">12:50</span>
+      <span class="day">Friday</span>
+      <span class="date">2026-01-30</span>
+    </div>
+    <div class="weather-status">
+      <div class="icon">
+        <img id="weather-icon"
+          src="//cdn.weatherapi.com/weather/64x64/day/113.png"
+          alt="weather-status-image" />
+      </div>
+      <div class="condition" id="weather">Sunny</div>
+    </div>
+  </div>
+</main>
+
+  </body>
+
+  <script>
+ const input = document.getElementById("srchinput");
+const btn = document.getElementById("searchbtn");
+
+const tempEl = document.getElementById("temp");
+const locEl = document.getElementById("loc");
+const weatherEl = document.getElementById("weather");
+
+btn.addEventListener("click", function () {
+  const location = input.value;
+
+  if (location === "") {
+    alert("Please enter a location");
+    return;
+  }
+
+
+  locEl.textContent = location;
+  
+});
+
+input.addEventListener("keydown", function (event) {
+  if (event.key === "Enter") {
+    btn.click();  
+  }
+});
+
+
+
+
+
+
+
+
+
+  </script>
+</html>
