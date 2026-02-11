@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@18/umd/react.development.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"
+    ></script>
+    <script src="https://unpkg.com/@babel/standalone/babel.min.js"></script>
+    <title>Document</title>
+
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        background-color: rgba(49, 199, 207, 0.374);
+      }
+      .parent-box {
+        display: flex;
+        align-items: center;
+        height: 100vh;
+        justify-content: center;
+      }
+      .big-box {
+        height: 500px;
+        width: 300px;
+        background-color: aliceblue;
+        position: relative; 
+        border: 2px solid black;
+      }
+      .score-box {
+        height: 40px;
+        width: 300px;
+        font-size: small;
+        font-weight: bolder;
+        font-size: xx-large;
+        margin: 5px;
+      }
+      .small-box {
+        height: 70px;
+        width: 70px;
+        position: absolute;  
+        margin: 10px;
+        display: flex;
+        background-image: url("./logo.png");
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+   <script type="text/babel">
+  const rootEle = document.querySelector("#root");
+  let score =0;
+
+  function Clickbox() {
+  const handclick = (event) => {
+  score++;
+  document.querySelector(".score-box").textContent = `score: ${score}`;
+
+  const box = event.target;
+
+  const randomX = Math.random() * (300 - 70);
+  const randomY = Math.random() * (500 - 70);
+
+  box.style.left = randomX + "px";
+  box.style.top = randomY + "px";
+
+    };
+
+    return (
+      <div className="parent-box">
+        <div className="big-box">
+          <div className="score-box">
+            <p>score: 0</p>
+          </div>
+
+          <div className="small-box" onClick={handclick}>
+          
+          </div>
+        </div>
+      </div>
+    );
+  }
+
+  ReactDOM.render(<Clickbox />, rootEle);
+</script>
+
+  </body>
+</html>

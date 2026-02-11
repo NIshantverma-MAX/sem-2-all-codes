@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            box-sizing: border-box;
+           
+        }
+        .grandparent{
+            background-color: rgba(5, 71, 177, 0.456);
+            height: 500px;
+            width: 900px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+        }
+        .parent{
+            background-color: rgba(95, 233, 4, 0.476);
+            height: 350px;
+            width: 550px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .maindiv{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+           
+            
+        }
+
+        .eventlog{
+            background-color: beige;
+            height: 500px;
+            width: 350px;
+            padding: 100px;
+            gap: 10px;
+        }
+        /* .child{
+            background-color: blue;
+            height: 200px;
+            width: 200px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        } */
+    </style>
+</head>
+<body>
+    <h1>Event Flow Playground</h1>
+    <h6>Demostrationg capturing , bubbling & Propagation Control</h6>
+    <br>
+    <br>
+    <br>
+<div class="maindiv
+">
+    <div class="grandparent">
+        grandparent
+         <div class="parent">
+                Parent <button>click me</button>
+           
+            </div> 
+            <div class="child">
+                child
+
+
+        </div>
+
+    </div>
+
+
+    <div class="eventlog">
+       
+       
+        <div> <p>Event Log</p>
+        <ol id="logList"></ol>
+        </div>
+</div>
+
+        <script>
+        
+
+        const grandparent = document.querySelector(".grandparent");
+        const parent = document.querySelector(".parent");
+        const child = document.querySelector(".child");
+        const logList = document.getElementById("logList");
+
+        function printLog(message) {
+            const li = document.createElement("li");
+            li.textContent = message;
+            logList.appendChild(li);
+        }
+
+        // Capturing Phase (Third argument = true)
+        grandparent.addEventListener("click", () => {
+             printLog("Grandparent");
+        }, true);
+
+        parent.addEventListener("click", () => {
+             printLog("Parent");
+        }, true);
+
+        child.addEventListener("click", () => {
+             printLog("Child");
+        }, true);
+
+        // Bubbling Phase (Third argument = false or omitted)
+        child.addEventListener("click", () => {
+             printLog("Child");
+        });
+
+        parent.addEventListener("click", () => {
+             printLog("Parent");
+        });
+
+        grandparent.addEventListener("click", () => {
+             printLog("Grandparent");
+        }); 
+
+    </script>
+    
+</body>
+</html>
